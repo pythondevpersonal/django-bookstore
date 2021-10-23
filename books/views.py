@@ -13,3 +13,12 @@ def index(request):
 
 def home_page(request):
     return render(request, 'home_page.html')
+
+
+def show(request, id):
+    singlebook = list()
+    for book in data:
+        if book['id']==id:
+            singlebook = book
+    context = {'book': singlebook}
+    return render(request, 'books/show.html', context)
